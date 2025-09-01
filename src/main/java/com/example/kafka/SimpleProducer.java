@@ -27,7 +27,7 @@ public class SimpleProducer {
         try (var producer = new KafkaProducer<String, String>(props)) {
             
             var message = args.length > 0 ? String.join(" ", args) : "Hello Kafka!";
-            var record = new ProducerRecord<>("hq.dev.rdv.refined.actors.v1", "key", message);
+            var record = new ProducerRecord<>("test_topic.v1", "key", message);
             System.out.println("🏷️ Ajout des headers...");
             record.headers().add("eventSource", "SALESFORCE".getBytes(StandardCharsets.UTF_8));
             record.headers().add("operation", "CREATE".getBytes(StandardCharsets.UTF_8));
