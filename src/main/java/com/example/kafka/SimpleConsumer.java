@@ -27,7 +27,7 @@ public class SimpleConsumer {
                 "password=\"xxxxxxx\";");
 
         try (var consumer = new KafkaConsumer<String, String>(props)) {
-            consumer.subscribe(List.of("hq.dev.rdv.refined.actors.v1"));
+            consumer.subscribe(List.of("test_topic.v1"));
             System.out.println("🎧 Consumer démarré - En attente de messages...");
             System.out.println("💡 Appuyez sur Ctrl+C pour arrêter");
 
