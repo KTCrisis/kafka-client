@@ -14,17 +14,17 @@ public class SimpleConsumer {
 
     public static void main(String[] args) {
         var props = new Properties();
-        props.put("bootstrap.servers", "pkc-z1o60.europe-west1.gcp.confluent.cloud:9092");
+        props.put("bootstrap.servers", "test.europe-west1.gcp.confluent.cloud:9092");
         props.put("key.deserializer", StringDeserializer.class.getName());
         props.put("value.deserializer", StringDeserializer.class.getName());
-        props.put("group.id", "SA-salesforce-cdc-actors-client-MFS-debug_group");
+        props.put("group.id", "test_group");
         props.put("auto.offset.reset", "earliest");
         props.put("security.protocol", "SASL_SSL");
         props.put("sasl.mechanism", "PLAIN");
         props.put("sasl.jaas.config",
                 "org.apache.kafka.common.security.plain.PlainLoginModule required " +
-                "username=\"I2VWZVM4TOZAT4GR\" " +
-                "password=\"cflt+JpqkGbJilKMfB1c4IqHtW0AgCh2P6Ts0oPLKD2+FKJUSuuNe+OzU4LCs3+g\";");
+                "username=\"xxxxxx\" " +
+                "password=\"xxxxxxx\";");
 
         try (var consumer = new KafkaConsumer<String, String>(props)) {
             consumer.subscribe(List.of("hq.dev.rdv.refined.actors.v1"));
