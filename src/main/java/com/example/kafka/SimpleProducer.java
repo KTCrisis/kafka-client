@@ -12,7 +12,7 @@ public class SimpleProducer {
     public static void main(String[] args) {
         // Configuration
         var props = new Properties();
-        props.put("bootstrap.servers", "pkc-z1o60.europe-west1.gcp.confluent.cloud:9092");
+        props.put("bootstrap.servers", "test.europe-west1.gcp.confluent.cloud:9092");
         props.put("key.serializer", StringSerializer.class.getName());
         props.put("value.serializer", StringSerializer.class.getName());
         props.put(ProducerConfig.ACKS_CONFIG, "1");
@@ -20,8 +20,8 @@ public class SimpleProducer {
         props.put("sasl.mechanism", "PLAIN");
         props.put("sasl.jaas.config", 
             "org.apache.kafka.common.security.plain.PlainLoginModule required " +
-            "username=\"I2VWZVM4TOZAT4GR\" " +
-            "password=\"cflt+JpqkGbJilKMfB1c4IqHtW0AgCh2P6Ts0oPLKD2+FKJUSuuNe+OzU4LCs3+g\";");
+            "username=\"xxxxxx\" " +
+            "password=\"xxxxxx\";");
         
         // Créer producer et envoyer message
         try (var producer = new KafkaProducer<String, String>(props)) {
